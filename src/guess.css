@@ -1,0 +1,32 @@
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    flex-direction: column;
+  }
+
+  .longhand { 
+    -webkit-flex-flow: wrap row;
+    flex-flow: wrap row;    
+  }
+
+  .flex-item {
+    background: tomato;
+    padding: 5px;
+    /* width: 100px; */
+    /* height: 50px; */
+    margin: 10px;
+    
+    line-height: 1em;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    text-align: center;
+  }
