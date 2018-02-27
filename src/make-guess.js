@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
+import Guess from './guess';
 import './make-guess.css';
 
 class MakeGuess extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state =  {
       hidden: true,
-      guesser: '',
-      length: '',
-      weight: '',
-      date: '',
-      time: '',
-      name: '',
-      comment: ''
+      guess: new Guess(),
     }
   }
 
@@ -23,17 +19,22 @@ class MakeGuess extends Component {
     });
   }
 
+  // TODO: try using refs? https://reactjs.org/docs/refs-and-the-dom.html
   handleChange = (event) => {
     const target = event.target;
     const name = target.name;
     const value = target.value;
       
-    this.setState(state => ({[name] : value}));
+    this.setState((state) =>  {
+      var guess = state.guess;
+      guess[name] = value;
+      return { guess };
+    });
   }
 
   handleSubmit = () => {
-    console.log('hey');
-    console.log(JSON.stringify(this.state));
+    const guess = new Guess(this.state.guess);
+    this.props.addGuess(guess); // relay the new guess back up for display in table
   }
 
   render() {
@@ -44,26 +45,29 @@ class MakeGuess extends Component {
           <div>
             <div>
               <label htmlFor="guesser">Your name</label>
-              <input name="guesser" type="text" value={this.state.guesser} onChange={this.handleChange} />
+              <input name="guesser" type="text" value={this.state.guess.guesser} onChange={this.handleChange} />
+
+              <label htmlFor="sex">Sex</label>
+              <input name="sex" type="text" value={this.state.guess.sex} onChange={this.handleChange} />
 
               <label htmlFor="length">Length</label>
-              <input name="length" type="text" value={this.state.length} onChange={this.handleChange} />
+              <input name="length" type="text" value={this.state.guess.length} onChange={this.handleChange} />
 
               <label htmlFor="weight">Weight</label>
-              <input name="weight" type="text" value={this.state.weight} onChange={this.handleChange} />
+              <input name="weight" type="text" value={this.state.guess.weight} onChange={this.handleChange} />
 
               <label htmlFor="date">Date</label>
-              <input name="date" type="text" value={this.state.date} onChange={this.handleChange} />
+              <input name="date" type="text" value={this.state.guess.date} onChange={this.handleChange} />
 
               <label htmlFor="time">Time</label>
-              <input name="time" type="text" value={this.state.time} onChange={this.handleChange} />
+              <input name="time" type="text" value={this.state.guess.time} onChange={this.handleChange} />
 
               <label htmlFor="name">Suggested Name(s)</label>
-              <input name="name" type="text" value={this.state.name} onChange={this.handleChange} />
+              <input name="name" type="text" value={this.state.guess.name} onChange={this.handleChange} />
 
               <label htmlFor="comment">Comment</label>
               <textarea name="comment" type="text"
-                        placeholder="Best of luck!" value={this.state.comment} onChange={this.handleChange} />
+                        placeholder="Best of luck!" value={this.state.guess.comment} onChange={this.handleChange} />
             </div>      
           </div>      
           <button className="btn btn-lg btn-primary"

@@ -3,23 +3,34 @@ import logo from './logo.svg';
 import './App.css';
 import GuessList from './guess-list';
 import MakeGuess from './make-guess';
+import Guess from './guess';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.GUESSES = [
-        {key: 1, guesser: 'Uncle Buck', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {key: 2, guesser: 'Aunt Barb', length: '20', weight: '8lbs 10oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {key: 3, guesser: 'Billy', length: '22', weight: '7lbs 11oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {key: 4, guesser: 'Bobby', length: '20', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {key: 5, guesser: 'Karen', length: '20', weight: '8lbs 6oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {key: 6, guesser: 'Patrick', length: '20', weight: '7lbs 9oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {key: 7, guesser: 'Squidward', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {key: 8, guesser: 'Marsha', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {key: 9, guesser: 'Jan', length: '19', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-      ];
+    this.state = {
+      guesses: [
+        new Guess({guesser: 'Uncle Buck', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'}),
+        new Guess({guesser: 'Aunt Barb', length: '20', weight: '8lbs 10oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'}),
+        // {key: 3, guesser: 'Billy', length: '22', weight: '7lbs 11oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        // {key: 4, guesser: 'Bobby', length: '20', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        // {key: 5, guesser: 'Karen', length: '20', weight: '8lbs 6oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        // {key: 6, guesser: 'Patrick', length: '20', weight: '7lbs 9oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        // {key: 7, guesser: 'Squidward', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        // {key: 8, guesser: 'Marsha', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        // {key: 9, guesser: 'Jan', length: '19', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+      ]
+    }
+  }
+
+  addGuess = (g) => {
+    console.log('add guess', g);
+    var newGuesses = this.state.guesses.concat(g);
+    this.setState({
+      guesses: newGuesses
+    })
   }
 
   render() {
@@ -30,9 +41,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
 
-        <MakeGuess></MakeGuess>
+        <MakeGuess addGuess={this.addGuess}></MakeGuess>
 
-        <GuessList guesses={this.GUESSES}></GuessList>
+        <GuessList guesses={this.state.guesses}></GuessList>
       </div>
     );
   }

@@ -3,11 +3,11 @@ import './guess-list.css';
 
 class GuessList extends Component {
 
-  constructor(props) {
-    super(props);
-    this.guesses = props.guesses.map((g, i) => {
+  guesses = () => {
+    return this.props.guesses.map((g, i) => {
       return <tr className={g.sex} key={i}>
           <td>{g.guesser}</td>
+          <td>{g.sex}</td>
           <td>{g.length}</td>
           <td>{g.weight}</td>
           <td>{g.date}</td>
@@ -25,6 +25,7 @@ class GuessList extends Component {
         <thead>
           <tr>
             <th>Guesser</th>
+            <th>Sex</th>
             <th>Length</th>
             <th>Weight</th>
             <th>DOB</th>
@@ -35,7 +36,7 @@ class GuessList extends Component {
           </tr>
         </thead>
         <tbody>
-          {this.guesses}
+          {this.guesses()}
         </tbody>
       </table>
     );
