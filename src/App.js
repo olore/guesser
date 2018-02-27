@@ -10,15 +10,15 @@ class App extends Component {
     super();
 
     this.GUESSES = [
-        {guesser: 'Uncle Buck', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {guesser: 'Aunt Barb', length: '20', weight: '8lbs 10oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {guesser: 'Billy', length: '22', weight: '7lbs 11oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {guesser: 'Bobby', length: '20', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {guesser: 'Karen', length: '20', weight: '8lbs 6oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {guesser: 'Patrick', length: '20', weight: '7lbs 9oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {guesser: 'Squidward', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {guesser: 'Marsha', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-        {guesser: 'Jan', length: '19', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comments: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 1, guesser: 'Uncle Buck', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 2, guesser: 'Aunt Barb', length: '20', weight: '8lbs 10oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 3, guesser: 'Billy', length: '22', weight: '7lbs 11oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 4, guesser: 'Bobby', length: '20', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 5, guesser: 'Karen', length: '20', weight: '8lbs 6oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 6, guesser: 'Patrick', length: '20', weight: '7lbs 9oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 7, guesser: 'Squidward', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 8, guesser: 'Marsha', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
+        {key: 9, guesser: 'Jan', length: '19', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
       ];
   }
 
