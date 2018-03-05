@@ -9,7 +9,8 @@ class MakeGuess extends Component {
 
     this.state =  {
       hidden: true,
-      guess: new Guess(),
+      guess: new Guess() // TODO - I want to pull this out of state
+                         // but then i end up with read-only inputs
     }
   }
 
@@ -33,8 +34,8 @@ class MakeGuess extends Component {
   }
 
   handleSubmit = () => {
-    const guess = new Guess(this.state.guess);
-    this.props.addGuess(guess); // relay the new guess back up for display in table
+    // relay the new guess back up for display in GuessList
+    this.props.addGuess(this.state.guess); 
   }
 
   render() {

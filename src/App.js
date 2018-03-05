@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import GuessList from './guess-list';
 import MakeGuess from './make-guess';
+import Intro from './intro';
 import Guess from './guess';
 
 class App extends Component {
@@ -21,12 +22,17 @@ class App extends Component {
         // {key: 7, guesser: 'Squidward', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
         // {key: 8, guesser: 'Marsha', length: '21', weight: '8lbs 1oz', date: 'Mar 22', sex: 'M', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
         // {key: 9, guesser: 'Jan', length: '19', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
-      ]
+      ],
+      introData: {
+        name: 'Kerri & PJ',
+        dueDate: '2018-02-23',
+        comment: 'Thanks for playing!',
+        password: 'passw0rd'
+      }
     }
   }
 
   addGuess = (g) => {
-    console.log('add guess', g);
     var newGuesses = this.state.guesses.concat(g);
     this.setState({
       guesses: newGuesses
@@ -38,11 +44,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to Baby Guesser</h1>
         </header>
 
+        <Intro data={this.state.introData}></Intro>
         <MakeGuess addGuess={this.addGuess}></MakeGuess>
-
         <GuessList guesses={this.state.guesses}></GuessList>
       </div>
     );
