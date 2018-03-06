@@ -24,7 +24,7 @@ class App extends Component {
         // {key: 9, guesser: 'Jan', length: '19', weight: '8lbs 1oz', date: 'Mar 22', sex: 'F', time: '11:13', name: 'Bob or Harry', comment: 'Good luck!', guessedOn: 'Mar 10, 10:04'},
       ],
       introData: {
-        name: 'Kerri & PJ',
+        name: 'Pat & Cris',
         dueDate: '2018-02-23',
         comment: 'Thanks for playing!',
         password: 'passw0rd'

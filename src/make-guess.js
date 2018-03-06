@@ -38,43 +38,64 @@ class MakeGuess extends Component {
     this.props.addGuess(this.state.guess); 
   }
 
+  getFormControl = (obj) => {
+    const display = obj.display;
+    const key = obj.key;
+    return <div className="form-group row" key={key}>
+      <label className="col-sm-4 col-form-label" htmlFor={key}>{display}</label>
+      <div className="col-sm-6">
+        <input name={key} className="form-control" type="text"
+          value={this.state.guess[key]} 
+          onChange={this.handleChange} />
+      </div>
+    </div>
+  }
+
+  generateLeftFormElements = () => {
+    return [
+      { display: 'Your name', key: 'guesser' },
+      { display: 'Sex',       key: 'sex' },
+      { display: 'Weight',    key: 'weight' },
+      { display: 'Length',    key: 'length' }
+    ].map((obj) => {
+      return this.getFormControl(obj);
+    })
+  }
+
+  generateRightFormElements = () => {
+    return [
+      { display: 'Date',            key: 'date' },
+      { display: 'Time',            key: 'time' },
+      { display: 'Suggested Name',  key: 'name' },
+      { display: 'Comments',        key: 'comment' }
+    ].map((obj) => {
+      return this.getFormControl(obj);
+    })
+  }
+
   render() {
     return (
-      <div className="make-guess">
+      <div className="makeGuess">
         <a href="#show" onClick={this.toggle}>Make Guess</a>
         <div className={this.state.hidden ? 'hide' : 'show'}>
-          <div>
-            <div>
-              <label htmlFor="guesser">Your name</label>
-              <input name="guesser" type="text" value={this.state.guess.guesser} onChange={this.handleChange} />
-
-              <label htmlFor="sex">Sex</label>
-              <input name="sex" type="text" value={this.state.guess.sex} onChange={this.handleChange} />
-
-              <label htmlFor="length">Length</label>
-              <input name="length" type="text" value={this.state.guess.length} onChange={this.handleChange} />
-
-              <label htmlFor="weight">Weight</label>
-              <input name="weight" type="text" value={this.state.guess.weight} onChange={this.handleChange} />
-
-              <label htmlFor="date">Date</label>
-              <input name="date" type="text" value={this.state.guess.date} onChange={this.handleChange} />
-
-              <label htmlFor="time">Time</label>
-              <input name="time" type="text" value={this.state.guess.time} onChange={this.handleChange} />
-
-              <label htmlFor="name">Suggested Name(s)</label>
-              <input name="name" type="text" value={this.state.guess.name} onChange={this.handleChange} />
-
-              <label htmlFor="comment">Comment</label>
-              <textarea name="comment" type="text"
-                        placeholder="Best of luck!" value={this.state.guess.comment} onChange={this.handleChange} />
+          <div className="row">
+            <div className="offset-sm-2 col-sm-4">
+              <form>
+                {this.generateLeftFormElements()}
+              </form>
+            </div>
+            <div className="col-sm-4">
+              <form>
+                {this.generateRightFormElements()}
+              </form>
             </div>      
           </div>      
-          <button className="btn btn-lg btn-primary"
-            onClick={this.handleSubmit}
-            >Punch it</button>
+          <div className="row align-items-center">
+            <button className="mx-auto btn btn-lg btn-primary"
+              onClick={this.handleSubmit}
+              >Punch it</button>
         </div>      
+      </div>      
       </div>      
     );
   }
